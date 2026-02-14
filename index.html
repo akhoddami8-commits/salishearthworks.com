@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salish Earthworks â Indigenous-Led Procurement</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark: #1b4332;
+    --green-mid: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #d8f3dc;
+    --cream: #f8f6f0;
+    --charcoal: #2b2d33;
+    --gray: #6b7280;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--charcoal);
+    line-height: 1.6;
+    background: var(--white);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: 0 40px;
+    height: 70px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 20px; font-weight: 700; color: var(--green-dark);
+    text-decoration: none; letter-spacing: 0.5px;
+    display: flex; align-items: center;
+  }
+  .nav-logo-img {
+    height: 50px;
+    width: auto;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--gray); font-size: 15px;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--green-mid); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background:
+      linear-gradient(to bottom, rgba(27,67,50,0.45) 0%, rgba(27,67,50,0.3) 40%, rgba(27,67,50,0.5) 100%),
+      url('https://i.ibb.co/gMPS4yTf/hero-landscape.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    padding: 120px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    color: var(--white);
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    line-height: 1.1;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.3);
+  }
+  .hero .tagline {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: rgba(255,255,255,0.95);
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .hero .cta-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: rgba(255,255,255,0.95);
+    color: var(--green-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .hero .cta-btn:hover {
+    transform: translateY(-2px);
+    background: var(--white);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 100px 40px; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green-mid);
+    margin-bottom: 16px;
+  }
+  .section-heading {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .section-text {
+    font-size: 17px;
+    color: var(--gray);
+    line-height: 1.8;
+    max-width: 700px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about { background: var(--cream); }
+  .about-image {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  }
+  .about-image img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center 60%;
+    display: block;
+  }
+  .about .highlight {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+  }
+  .highlight-card {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 8px;
+    border-left: 4px solid var(--green-mid);
+  }
+  .highlight-card h3 {
+    font-size: 18px;
+    color: var(--green-dark);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .highlight-card p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ===== LAND ACKNOWLEDGMENT ===== */
+  .acknowledgment {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+  }
+  .acknowledgment .section-label { color: var(--green-pale); }
+  .acknowledgment .section-heading { color: var(--white); }
+  .acknowledgment .section-text {
+    color: rgba(255,255,255,0.8);
+    margin: 0 auto;
+    font-style: italic;
+    font-size: 18px;
+    max-width: 750px;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact { background: var(--white); }
+  .contact-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+  }
+  .contact-item .label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--green-mid);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .contact-item a, .contact-item p {
+    font-size: 16px;
+    color: var(--charcoal);
+    text-decoration: none;
+    line-height: 1.6;
+  }
+  .contact-item a:hover { color: var(--green-mid); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px 40px;
+    font-size: 13px;
+  }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    section { padding: 60px 20px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 13px; }
+    .highlight { grid-template-columns: 1fr; }
+  }
+
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" class="nav-logo-img">
+  <!-- Icon box -->
+  <rect x="2" y="2" width="76" height="76" rx="6" fill="#4a8c6f"/>
+  <rect x="2" y="2" width="76" height="42" rx="6" fill="#5a9e7f"/>
+  <!-- Wavy lines -->
+  <path d="M10,18 Q20,12 30,18 Q40,24 50,18 Q60,12 70,18" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none"/>
+  <path d="M10,28 Q20,22 30,28 Q40,34 50,28 Q60,22 70,28" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none"/>
+  <path d="M10,38 Q20,32 30,38 Q40,44 50,38 Q60,32 70,38" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none"/>
+  <!-- Mountain -->
+  <path d="M2,78 Q20,78 30,55 Q37,42 40,42 Q43,42 50,55 Q60,78 78,78 Z" fill="#2d5a3f"/>
+  <!-- Text -->
+  <text x="92" y="35" font-family="'Segoe UI',system-ui,sans-serif" font-size="28" font-weight="800" fill="#2b2d33" letter-spacing="1">SALISH</text>
+  <text x="92" y="65" font-family="'Segoe UI',system-ui,sans-serif" font-size="28" font-weight="400" fill="#2b2d33" letter-spacing="1">EARTHWORKS</text>
+</svg></a>
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="nations.html">Nations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>SALISH EARTHWORKS</h1>
+    <p class="tagline">Indigenous-Led Procurement &amp; Infrastructure Solutions</p>
+    <a href="#contact" class="cta-btn">Get in Touch</a>
+  </div>
+</section>
+
+<!-- LAND ACKNOWLEDGMENT -->
+<section class="acknowledgment" id="acknowledgment">
+  <div class="container">
+    <p class="section-label">Land Acknowledgment</p>
+    <h2 class="section-heading">Honouring the Land</h2>
+    <p class="section-text">
+      Salish Earthworks respectfully acknowledges that we live and work on the unceded traditional territories of the Coast Salish peoples, including the Kwikwetlem, Katzie, Musqueam, Squamish, and Tsleil-Waututh Nations. We honour and give thanks to the First Nations peoples who have cared for these lands since time immemorial.
+    </p>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="section-label">Who We Are</p>
+    <h2 class="section-heading">Building with purpose, rooted in community.</h2>
+    <p class="section-text">
+      Salish Earthworks is an Indigenous-led procurement company operating on the unceded territories of the Coast Salish peoples. We specialize in waterworks infrastructure, with growing capabilities in lumber supply and broader development services. Our work is grounded in a commitment to quality, integrity, and respect for the land we build on.
+    </p>
+
+    <div class="highlight">
+      <div class="highlight-card">
+        <h3>Waterworks</h3>
+        <p>Pipes, fittings, valves, hydrants, and water infrastructure procurement and supply for municipal and commercial projects.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Lumber &amp; Materials</h3>
+        <p>Expanding into lumber supply and building materials to serve construction and development projects across British Columbia.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Development</h3>
+        <p>Growing our presence across multiple facets of infrastructure development, bringing Indigenous leadership to every project.</p>
+      </div>
+    </div>
+
+    <div class="about-image">
+      <img src="https://i.ibb.co/TQfm09K/staging-yard.png" alt="Salish Earthworks â waterworks infrastructure staging and procurement" />
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-heading">Let's build something together.</h2>
+    <p class="section-text">
+      Whether you're looking for waterworks procurement, lumber supply, or want to explore how we can support your next project, we'd love to hear from you.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <p class="label">Email</p>
+        <a href="mailto:rali@salishearthworks.com">rali@salishearthworks.com</a>
+      </div>
+      <div class="contact-item">
+        <p class="label">Phone</p>
+        <a href="tel:+16044403057">(604) 440-3057</a>
+      </div>
+      <div class="contact-item">
+        <p class="label">Location</p>
+        <p>Coquitlam, British Columbia<br>Canada</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Salish Earthworks. All rights reserved. &nbsp;|&nbsp;
+  <a href="https://salishearthworks.com">salishearthworks.com</a>
+</footer>
+
+</body>
+</html>
