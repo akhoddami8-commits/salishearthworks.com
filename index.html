@@ -192,10 +192,7 @@
   .contact { background: var(--white); }
   .contact-layout {
     margin-top: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
+    max-width: 700px;
   }
   .contact-form { display: flex; flex-direction: column; gap: 20px; }
   .contact-form label {
@@ -250,7 +247,6 @@
     background: var(--green-dark);
     transform: translateY(-1px);
   }
-  .contact-info { padding-top: 8px; }
   .contact-item { margin-bottom: 28px; }
   .contact-item .label {
     font-size: 13px;
@@ -268,7 +264,6 @@
   }
   .contact-item a:hover { color: var(--green-mid); }
   @media (max-width: 768px) {
-    .contact-layout { grid-template-columns: 1fr; }
     .contact-form .form-row { grid-template-columns: 1fr; }
   }
 
@@ -406,20 +401,6 @@
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
 
-      <div class="contact-info">
-        <div class="contact-item">
-          <p class="label">Email</p>
-          <a href="mailto:rali@salishearthworks.com">rali@salishearthworks.com</a>
-        </div>
-        <div class="contact-item">
-          <p class="label">Phone</p>
-          <a href="tel:+16044403057">(604) 440-3057</a>
-        </div>
-        <div class="contact-item">
-          <p class="label">Location</p>
-          <p>Coquitlam, British Columbia<br>Canada</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -432,4 +413,3 @@
 
 </body>
 </html>
-
