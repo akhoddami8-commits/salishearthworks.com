@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Salish Earthworks &mdash; Indigenous-Led Procurement</title>
+<meta name="description" content="Salish Earthworks is an Indigenous-led procurement partner supplying waterworks, lumber and building materials to construction and development projects across British Columbia.">
+<meta name="theme-color" content="#1b4332">
+<link rel="canonical" href="https://salishearthworks.com/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Salish Earthworks">
+<meta property="og:title" content="Salish Earthworks &mdash; Indigenous-Led Procurement">
+<meta property="og:description" content="Salish Earthworks is an Indigenous-led procurement partner supplying waterworks, lumber and building materials to construction and development projects across British Columbia.">
+<meta property="og:url" content="https://salishearthworks.com/">
+<meta property="og:image" content="https://salishearthworks.com/Logo%20PNG.png">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -51,6 +62,15 @@
     font-weight: 500; transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--green-mid); }
+  .nav-links a { white-space: nowrap; }
+  @media (max-width: 640px) {
+    nav { height: 64px; }
+    .nav-logo-img { height: 38px; }
+    .nav-links { gap: 14px !important; }
+  }
+  @media (max-width: 480px) {
+    .nav-hide-sm { display: none; }
+  }
 
   /* ===== HERO ===== */
   .hero {
@@ -296,9 +316,10 @@
 <nav>
   <a href="index.html" class="nav-logo"><img src="Logo PNG .png" alt="Salish Earthworks" class="nav-logo-img"></a>
   <ul class="nav-links">
-    <li><a href="#about" class="active">About</a></li>
+    <li><a href="index.html#about">About</a></li>
     <li><a href="nations.html">Nations</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li class="nav-hide-sm"><a href="index.html#acknowledgment">Our Land</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -329,7 +350,7 @@
     <p class="section-label">Who We Are</p>
     <h2 class="section-heading">Building with purpose, rooted in community.</h2>
     <p class="section-text">
-      Salish Earthworks is an Indigenous-led procurement company operating on the unceded territories of the Coast Salish peoples. We specialize in waterworks infrastructure, with growing capabilities in lumber supply and broader development services. Our work is grounded in a commitment to quality, integrity, and respect for the land we build on.
+      Salish Earthworks is an Indigenous-led procurement company operating on the unceded territories of the Coast Salish peoples. We source and deliver waterworks infrastructure, framing lumber and building materials for developers and contractors, coordinated in a way that supports Musqueam participation and keeps project risk in check. Our work is grounded in a commitment to quality, integrity, and respect for the land we build on.
     </p>
 
     <div class="highlight">
@@ -339,7 +360,7 @@
       </div>
       <div class="highlight-card">
         <h3>Lumber &amp; Materials</h3>
-        <p>Expanding into lumber supply and building materials to serve construction and development projects across British Columbia.</p>
+        <p>Framing lumber, sheathing, engineered wood and building materials for residential and commercial construction across British Columbia.</p>
       </div>
       <div class="highlight-card">
         <h3>Development</h3>
